@@ -1,0 +1,35 @@
+<html>
+  <head>
+    <title>Lista zadań</title>
+  </head>
+  <body>
+    <h1>Lista zadań:</h1>
+
+    
+    <form class="add-form" method="POST" action="{{ url_for('zadania') }}">
+      <input type="text" placeholder="Tytuł zadania" name="tytuł" required>
+      <input type="text" placeholder="Opis zadania" name="opis" required>
+      <button type="submit">Dodaj zadanie</button>
+    </form>
+
+    <ol>
+      
+      {% for zadanie in zadania %}
+        
+        <li>
+          <td>{{ zadanie[1] }}</td>
+          <td>{{ zadanie[2] }}</td>
+        </li>  
+          
+          {% if not zadanie.zrobione %}
+            <form method="POST" action="{{ url_for('zrobione') }}">
+              <input type="hidden" name="id" value="{{ zadanie[0] }}"/>
+              <button type="submit">Zrobione!</button>
+            </form>
+          {% endif %}
+        </li>
+      {% endfor %}
+    </ol>
+
+  </body>
+</html>
