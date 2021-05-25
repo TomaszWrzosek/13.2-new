@@ -1,0 +1,40 @@
+<html>
+  <head>
+    <title>Books list</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+  </head>
+  <body>
+    <h1>Books list:</h1>
+
+    
+    <form class="add-form" method="POST" action="{{ url_for('library') }}">
+      <input type="text" placeholder="Author" name="Author" required>
+      <input type="text" placeholder="Title" name="Title" required>
+      <button type="submit">Add a book</button>
+    </form>
+
+    <ol>
+      
+      {% for book in library %}
+        
+        <li>
+          <td>{{ book[1] }}</td>
+          <td>{{ book[2] }}</td>
+        </li>  
+          
+          {% if not book.return %}
+            <form method="POST" action="{{ url_for('status') }}">
+              <input type="hidden" name="id" value="{{ book[0] }}"/>
+              <button type="submit">Book back in library!</button>
+            </form>
+          {% endif %}
+          <form method="POST" action="{{ url_for('delete') }}">
+            <input type="hidden" name="id" value="{{ book[0] }}"/>
+            <button type="submit">Delete book!</button>
+          </form>
+        </li>
+      {% endfor %}
+    </ol>
+
+  </body>
+</html>

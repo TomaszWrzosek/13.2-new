@@ -1,21 +1,21 @@
 body { margin-top: 20px; 
-  background-color: lightblue; 
+  background-color: rgb(107, 221, 135); 
 }
 h1, p { margin-left: 20px; }
 .add-form { margin-left: 20px; }
 ol { text-align: left; }
 em { font-size: 11px; margin-left: 10px; }
 form { display: inline-block; margin-bottom: 0;}
-input[name="zadanie"] { width: 300px; }
-input[name="zadanie"]:focus {
-  border-color: blue;
+input[name="book"] { width: 300px; }
+input[name="book"]:focus {
+  border-color: rgb(0, 167, 56);
   border-radius: 5px;
 }
 li { margin-bottom: 5px; }
 button {
   padding: 3px 5px;
   cursor: pointer;
-  color: blue;
+  color: rgb(255, 0, 0);
   font-size: 12px/1.5em;
   background: white;
   border: 1px solid grey;
